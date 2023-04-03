@@ -1,0 +1,38 @@
+/**
+ Implementation of all Locators
+ */
+package First;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
+
+public class a4_Locators {
+
+	public static void main(String[] args) {
+		ChromeOptions co = new ChromeOptions();//this line for solve error
+		co.addArguments("--remote-allow-origins=*");//this line for solve error
+		
+		WebDriver driver = new ChromeDriver(co);
+		driver.get("https://www.facebook.com/");
+		
+		//ID Locator -->
+		driver.findElement(By.id("email")).sendKeys("nikhilshimpi@gmail.com");
+		
+		//Name Locator -->
+		driver.findElement(By.name("pass")).sendKeys("123456789");
+		
+		//LinkTextLocator Locator -->
+		driver.findElement(By.linkText("Forgotten password?")).click();
+		
+		//PartialLinkText Locator -->
+		driver.navigate().back();
+		driver.findElement(By.partialLinkText("Forgotten")).click();
+		
+		//Css_Selector_Locator -->
+		driver.findElement(By.cssSelector("input[name='email']")).sendKeys("123456780");
+		
+	}
+
+}
