@@ -1,0 +1,26 @@
+//2.Write a program to Open Youtube,maximize window,
+//display title,display URL,Close window Using Selenium.
+
+package First;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
+
+public class basic1 {
+
+	public static void main(String[] args) {
+		
+		ChromeOptions co = new ChromeOptions();//this line for solve error
+		co.addArguments("--remote-allow-origins=*");//this line for solve error
+		
+		WebDriver driver = new ChromeDriver(co);//chrome browser will open
+		driver.get("https://www.youtube.com/");
+		driver.manage().window().maximize();
+		System.out.println("Title:" +driver.getTitle());
+		System.out.println("URL:" +driver.getCurrentUrl());
+		driver.close();
+		
+	}
+
+}
